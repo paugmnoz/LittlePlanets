@@ -12,9 +12,5 @@ public class Number extends Elemento {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public void ordenar() {
-		// TODO Auto-generated method stub
-		
-	}
+
 }
