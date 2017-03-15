@@ -1,5 +1,5 @@
 
-public abstract class Elemento {
+public abstract class Elemento{
 
 	protected float x, y;
 
@@ -9,4 +9,5 @@ public abstract class Elemento {
 	}
 
 	public abstract void pintar();
+
 }

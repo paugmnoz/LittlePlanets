@@ -13,5 +13,11 @@ public class Luz extends Elemento {
 		
 	}
 
+	@Override
+	public void ordenar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
