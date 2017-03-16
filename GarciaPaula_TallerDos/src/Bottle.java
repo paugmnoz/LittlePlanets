@@ -16,8 +16,8 @@ public class Bottle extends Elemento {
 
 	@Override
 	public void pintar(float nx, float ny) {
-		// TODO Auto-generated method stub
-		
+		app.fill(232,145,98);
+		app.ellipse(nx,ny,20,20);
 	}
 
 

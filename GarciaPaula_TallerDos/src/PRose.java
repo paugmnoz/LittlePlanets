@@ -20,7 +20,7 @@ public class PRose extends Planeta {
 
 	@Override
 	public void ordenar() {
-
+		
 	}
 
 	@Override

@@ -18,8 +18,8 @@ public class Luz extends Elemento {
 
 	@Override
 	public void pintar(float nx, float ny) {
-		// TODO Auto-generated method stub
-		
+		app.fill(137,232,203);
+		app.ellipse(nx,ny,20,20);
 	}
 
 

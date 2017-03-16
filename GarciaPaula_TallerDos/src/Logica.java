@@ -40,7 +40,16 @@ public class Logica {
 		for (int i = 0; i < 5; i++) {
 			p[i].pintar(_x);
 		}
-
+		//--- AGREGAR ELEMENTOS
+				for (int i = 0; i < p.length; i++) {
+					for (int j = 0; j < elements.size(); j++) {
+					Planeta pp = p[i];
+					if (select  != null && pp.activarAgregar(elements.get(j))) {
+						p[i].agregar(elements.get(j));
+					//	elements.remove(j);
+					}	
+					}
+				}
 	}
 
 	public void click() {
@@ -58,16 +67,7 @@ public class Logica {
 	}
 	public void mRelease() {
 		
-		//--- AGREGAR ELEMENTOS
-		for (int i = 0; i < p.length; i++) {
-			for (int j = 0; j < elements.size(); j++) {
-			Planeta pp = p[i];
-			if (select  != null && pp.activarAgregar(elements.get(i))) {
-				p[i].agregar(elements.get(i));
-				elements.remove(i);
-			}	
-			}
-		}
+		
 		select = null;
 	}
 
@@ -89,4 +89,5 @@ public class Logica {
 			elements.add(new Luz(app, app.random(0, 1100), app.random(50, 650)));
 		}
 	}
+
 }

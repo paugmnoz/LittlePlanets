@@ -18,7 +18,7 @@ public class Star extends Elemento {
 
 	@Override
 	public void pintar(float nx, float ny) {
-		// TODO Auto-generated method stub
-		
+		app.fill(98,205,232);
+		app.ellipse(nx,ny,20,20);
 	}
 }

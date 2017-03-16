@@ -18,8 +18,8 @@ public class Number extends Elemento {
 
 	@Override
 	public void pintar(float nx, float ny) {
-		// TODO Auto-generated method stub
-		
+		app.fill(247,237,240);
+		app.ellipse(nx,ny,20,20);
 	}
 
 }
