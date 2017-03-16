@@ -10,7 +10,7 @@ public class GarciaPaula_TallerDos extends PApplet {
 
 	@Override
 	public void settings() {
-		size(900, 900);
+		size(1200, 700);
 	}
 
 	@Override
@@ -20,17 +20,24 @@ public class GarciaPaula_TallerDos extends PApplet {
 
 	@Override
 	public void draw() {
+		background(255);
+		noStroke();
 		app.display();
 	}
 
 	@Override
-	public void mouseClicked() {
+	public void mousePressed() {
 		app.click();
 	}
 
 	@Override
 	public void mouseReleased() {
 		app.mRelease();
+	}
+	
+	@Override
+	public void mouseDragged() {
+		app.drag();
 	}
 
 	@Override
