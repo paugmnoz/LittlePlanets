@@ -1,6 +1,7 @@
 import processing.core.PApplet;
 
 public class Number extends Elemento {
+	private float _nx, _ny;
 
 
 	public Number (PApplet app, float x, float y) {
@@ -17,9 +18,10 @@ public class Number extends Elemento {
 
 
 	@Override
-	public void pintar(float nx, float ny) {
+	public void pintar(float nx, float ny, float radio, float angulo) {
 		app.fill(247,237,240);
-		app.ellipse(nx,ny,20,20);
-	}
+		_nx = nx + PApplet.cos(angulo) * radio;
+		_ny = nx + PApplet.sin(angulo) * radio;
+		app.ellipse(_nx,_ny,20,20);	}
 
 }

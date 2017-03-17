@@ -11,8 +11,8 @@ public class Logica {
 	private ArrayList<Elemento> elements = new ArrayList<Elemento>();
 	private HashSet<Elemento> elementosH;
 	private TreeSet<Elemento> elementosT;
-	
-	private Planeta select; //para mover los planetas
+
+	private Planeta select; // para mover los planetas
 
 	private float _x; // para mover la camara
 
@@ -40,16 +40,18 @@ public class Logica {
 		for (int i = 0; i < 5; i++) {
 			p[i].pintar(_x);
 		}
-		//--- AGREGAR ELEMENTOS
-				for (int i = 0; i < p.length; i++) {
-					for (int j = 0; j < elements.size(); j++) {
-					Planeta pp = p[i];
-					if (select  != null && pp.activarAgregar(elements.get(j))) {
-						p[i].agregar(elements.get(j));
-					//	elements.remove(j);
-					}	
+		// --- AGREGAR ELEMENTOS
+		for (int i = 0; i < p.length; i++) {
+			for (int j = 0; j < elements.size(); j++) {
+				Planeta pp = p[i];
+				if (select != null && pp.activarAgregar(elements.get(j))) {
+
+					if (p[i].agregar(elements.get(j))) {
+						elements.remove(j);
 					}
 				}
+			}
+		}
 	}
 
 	public void click() {
@@ -60,14 +62,13 @@ public class Logica {
 		}
 	}
 
-	public void drag (){
+	public void drag() {
 		if (select != null) {
 			select.drag(app.mouseX, app.mouseY);
 		}
 	}
+
 	public void mRelease() {
-		
-		
 		select = null;
 	}
 
@@ -77,7 +78,7 @@ public class Logica {
 			elements.add(new Flor(app, app.random(0, 1100), app.random(50, 650)));
 		}
 		if (app.keyCode == 'S') {
-			elements.add(new Star(app, app.random( 0, 1100), app.random(50, 650)));
+			elements.add(new Star(app, app.random(0, 1100), app.random(50, 650)));
 		}
 		if (app.keyCode == 'D') {
 			elements.add(new Bottle(app, app.random(0, 1100), app.random(50, 650)));

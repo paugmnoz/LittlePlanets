@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 public class Luz extends Elemento {
-
+	private float _nx, _ny;
 
 	public Luz(PApplet app, float x, float y) {
 		super(app, x, y);
@@ -17,10 +17,11 @@ public class Luz extends Elemento {
 
 
 	@Override
-	public void pintar(float nx, float ny) {
+	public void pintar(float nx, float ny, float radio, float angulo) {
 		app.fill(137,232,203);
-		app.ellipse(nx,ny,20,20);
-	}
+		_nx = nx + PApplet.cos(angulo) * radio;
+		_ny = nx + PApplet.sin(angulo) * radio;
+		app.ellipse(_nx,_ny,20,20);	}
 
 
 

@@ -13,7 +13,7 @@ public abstract class Elemento {
 
 	public abstract void pintar(float _x);
 	
-	public abstract void pintar(float nx, float ny);
+	public abstract void pintar(float nx, float ny, float radio, float angulo);
 
 	public float getX() {
 		return x;

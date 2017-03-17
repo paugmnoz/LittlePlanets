@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class PKing extends Planeta {
 
@@ -14,7 +15,12 @@ public class PKing extends Planeta {
 		app.fill(98, 205, 232);
 		app.ellipse(x + _x, y, 100, 100);
 		for (int i = 0; i < newEs.size(); i++) {
-			newEs.get(i).pintar(x + 70, y + 70);
+			app.pushMatrix();
+			app.translate(x, y);
+			app.rotate((float) (0 * 0.05));
+			newEs.get(i).pintar(0, 0, radio, angulo * i);
+			angulo = PConstants.TWO_PI / newEs.size();
+			app.popMatrix();
 		}
 	}
 
@@ -31,12 +37,13 @@ public class PKing extends Planeta {
 	}
 
 	@Override
-	public void agregar(Elemento newE) {
+	public boolean agregar(Elemento newE) {
 		Elemento e = newE;
-		if (e instanceof Star) {
+		if (e instanceof Star || e instanceof Flor) {
 			newEs.add(newE);
+			return true;
 		} else {
-
+return false;
 		}
 	}
 }

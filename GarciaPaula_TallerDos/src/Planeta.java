@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 
 public abstract class Planeta implements Ordenable {
-	protected float x, y, _x;
+	protected float x, y, _x, radio, angulo;
 	protected int escala;
 	protected PApplet app;
 
@@ -13,19 +13,20 @@ public abstract class Planeta implements Ordenable {
 		this.y = y;
 		this.escala = escala;
 		this._x = _x;
+		radio=50;
 	}
 
 	public abstract void pintar(float _x);
 	
 	//metodo para activar drag
 	public Boolean activar(PApplet app){
-		if (PApplet.dist(x, y, app.mouseX, app.mouseY) < 100) {
+		if (PApplet.dist(x, y, app.mouseX, app.mouseY) < escala) {
 			return true;
 		}
 		return false;
 	}
 	
-	//nueva posición
+	//nueva posicion
 	public void drag(float x, float y){
 		this.x = x;
 		this.y = y;
@@ -39,7 +40,8 @@ public abstract class Planeta implements Ordenable {
 		return false;
 	}
 	
-	public abstract void agregar(Elemento newE);
+	// para saber si agrego el elemento al planeta
+	public abstract boolean agregar(Elemento newE);
 	
 	public abstract void ordenar();
 	public abstract void variar();

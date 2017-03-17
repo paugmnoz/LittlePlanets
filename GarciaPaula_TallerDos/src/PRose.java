@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class PRose extends Planeta {
 
@@ -14,13 +15,18 @@ public class PRose extends Planeta {
 		app.fill(232, 125, 202);
 		app.ellipse(x + _x, y, 100, 100);
 		for (int i = 0; i < newEs.size(); i++) {
-			newEs.get(i).pintar(x + 70, y + 70);
+			app.pushMatrix();
+			app.translate(x, y);
+			app.rotate((float) (0 * 0.05));
+			newEs.get(i).pintar(0, 0, radio, angulo * i);
+			angulo = PConstants.TWO_PI / newEs.size();
+			app.popMatrix();
 		}
 	}
 
 	@Override
 	public void ordenar() {
-		
+
 	}
 
 	@Override
@@ -29,12 +35,13 @@ public class PRose extends Planeta {
 	}
 
 	@Override
-	public void agregar(Elemento newE) {
+	public boolean agregar(Elemento newE) {
 		Elemento e = newE;
-		if (e instanceof Flor) {
+		if (e instanceof Flor || e instanceof Star ) {
 			newEs.add(newE);
+			return true;
 		} else {
-
+			return false;
 		}
 	}
 

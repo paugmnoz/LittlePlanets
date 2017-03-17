@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class PBusinessMan extends Planeta {
 	private ArrayList<Elemento> newEs = new ArrayList<Elemento>();
@@ -14,7 +15,12 @@ public class PBusinessMan extends Planeta {
 		app.fill(247, 237, 240);
 		app.ellipse(x + _x, y, 100, 100);
 		for (int i = 0; i < newEs.size(); i++) {
-			newEs.get(i).pintar(x + 70, y + 70);
+			app.pushMatrix();
+			app.translate(x, y);
+			app.rotate((float) (0 * 0.05));
+			newEs.get(i).pintar(0, 0, radio, angulo * i);
+			angulo = PConstants.TWO_PI / newEs.size();
+			app.popMatrix();
 		}
 	}
 
@@ -27,12 +33,13 @@ public class PBusinessMan extends Planeta {
 	}
 
 	@Override
-	public void agregar(Elemento newE) {
+	public boolean agregar(Elemento newE) {
 		Elemento e = newE;
-		if (e instanceof Number) {
+		if (e instanceof Number || e instanceof Bottle) {
 			newEs.add(newE);
+			return true;
 		} else {
-
+return false;
 		}
 	}
 
