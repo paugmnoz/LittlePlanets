@@ -29,7 +29,7 @@ public class Flor extends Elemento {
 		app.fill(232,125,202);
 		_nx = nx + PApplet.cos(angulo) * radio;
 		_ny = nx + PApplet.sin(angulo) * radio;
-		app.image(flor[rose], _nx, _ny);
+		app.image(flor[c], _nx, _ny);
 		//app.ellipse(_nx,_ny,20,20);
 	}
 	

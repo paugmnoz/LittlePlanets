@@ -12,7 +12,6 @@ public class PRose extends Planeta {
 
 	public PRose(PApplet app, float x, float y, int escala, float _x) {
 		super(app, x, y, escala, _x);
-		backup.addAll(newEs);
 	}
 
 	public void pintar(float _x) {
@@ -46,7 +45,8 @@ public class PRose extends Planeta {
 				app.translate(x, y);
 				app.rotate((float) (a * 0.02));
 				newEs.get(i).pintar(0, 0, iw / 2 + 20, angulo * i, c);
-				app.ellipse(0 + PApplet.cos(angulo) * radio, 0 + PApplet.sin(angulo) * radio, 20, 20);
+				app.ellipse(0 + PApplet.cos(angulo*i) * radio, 0 + PApplet.sin(angulo*i) * radio, 20, 20);
+				app.text(c, 0, 0);
 				angulo = PConstants.TWO_PI / newEs.size();
 				app.popMatrix();
 
@@ -62,6 +62,7 @@ public class PRose extends Planeta {
 
 	@Override
 	public void ordenar() {
+		backup.addAll(newEs);
 		newEs.clear();
 		newEs.addAll(backup);
 		ordenado = true;
