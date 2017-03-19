@@ -12,15 +12,25 @@ public class PLightMan extends Planeta {
 	}
 
 	public void pintar(float _x) {
+		a++;
 		app.fill(137, 232, 203);
-		app.ellipse(x + _x, y, 100, 100);
+		app.image(img[4], x, y, iw, iw);
+		// app.ellipse(x + _x, y, 100, 100);
 		for (int i = 0; i < newEs.size(); i++) {
 			app.pushMatrix();
 			app.translate(x, y);
-			app.rotate((float) (0 * 0.05));
-			newEs.get(i).pintar(0, 0, radio, angulo * i);
+			app.rotate((float) (a * 0.05));
+			newEs.get(i).pintar(0, 0, iw/2 + 20, angulo * i,c);
 			angulo = PConstants.TWO_PI / newEs.size();
 			app.popMatrix();
+		}
+		cambios();
+	}
+
+	public void cambios() {
+		if (newEs.size() == 5) {
+			iw += 2;
+			iw=iw;
 		}
 	}
 
@@ -37,7 +47,7 @@ public class PLightMan extends Planeta {
 	@Override
 	public boolean agregar(Elemento newE) {
 		Elemento e = newE;
-		if (e instanceof Luz || e instanceof Number ) {
+		if (e instanceof Luz || e instanceof Number) {
 			newEs.add(newE);
 			return true;
 		} else {

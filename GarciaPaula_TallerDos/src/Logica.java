@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.TreeSet;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class Logica {
 
@@ -28,6 +30,7 @@ public class Logica {
 
 		_x = 0;
 		select = null;
+
 	}
 
 	public void display() {
@@ -36,10 +39,7 @@ public class Logica {
 		for (int i = 0; i < elements.size(); i++) {
 			elements.get(i).pintar(_x);
 		}
-		// -------PINTAR PLANETAS
-		for (int i = 0; i < 5; i++) {
-			p[i].pintar(_x);
-		}
+
 		// --- AGREGAR ELEMENTOS
 		for (int i = 0; i < p.length; i++) {
 			for (int j = 0; j < elements.size(); j++) {
@@ -52,6 +52,11 @@ public class Logica {
 				}
 			}
 		}
+
+		// -------PINTAR PLANETAS
+		for (int i = 0; i < 5; i++) {
+			p[i].pintar(_x);
+		}
 	}
 
 	public void click() {
@@ -60,6 +65,19 @@ public class Logica {
 				select = p[i];
 			}
 		}
+		
+			if (app.mouseButton == PConstants.RIGHT) {
+				for (int i = 0; i < p.length; i++) {
+					Planeta rose = p[i];
+					if(rose instanceof Planeta){
+						rose.ordenar();
+						System.out.println("asdfasdfdsfasdfas");
+
+					}
+
+				}
+			}
+		
 	}
 
 	public void drag() {
@@ -75,19 +93,19 @@ public class Logica {
 	public void key() {
 
 		if (app.keyCode == 'A') {
-			elements.add(new Flor(app, app.random(0, 1100), app.random(50, 650)));
+			elements.add(new Flor(app, app.random(0, app.width), app.random(50, app.height)));
 		}
 		if (app.keyCode == 'S') {
-			elements.add(new Star(app, app.random(0, 1100), app.random(50, 650)));
+			elements.add(new Star(app, app.random(0, app.width), app.random(50, app.height)));
 		}
 		if (app.keyCode == 'D') {
-			elements.add(new Bottle(app, app.random(0, 1100), app.random(50, 650)));
+			elements.add(new Bottle(app, app.random(0, app.width), app.random(50, app.height)));
 		}
 		if (app.keyCode == 'F') {
-			elements.add(new Number(app, app.random(0, 1100), app.random(50, 650)));
+			elements.add(new Number(app, app.random(0, app.width), app.random(50, app.height)));
 		}
 		if (app.keyCode == 'G') {
-			elements.add(new Luz(app, app.random(0, 1100), app.random(50, 650)));
+			elements.add(new Luz(app, app.random(0, app.width), app.random(50, app.height)));
 		}
 	}
 

@@ -10,7 +10,8 @@ public class GarciaPaula_TallerDos extends PApplet {
 
 	@Override
 	public void settings() {
-		size(1200, 700);
+	fullScreen();
+	//		size(1200, 700);
 	}
 
 	@Override
@@ -20,7 +21,7 @@ public class GarciaPaula_TallerDos extends PApplet {
 
 	@Override
 	public void draw() {
-		background(255);
+		background(34,31,53);
 		noStroke();
 		app.display();
 	}
