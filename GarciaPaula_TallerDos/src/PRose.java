@@ -22,13 +22,14 @@ public class PRose extends Planeta {
 		app.rotate((float) (a * 0.001));
 		app.image(img[0], 0, 0, iw, iw);
 		app.popMatrix();
+		System.out.println(order);
 
 		// app.ellipse(x + _x, y, 100, 100);
 		for (int i = 0; i < newEs.size(); i++) {
 			app.pushMatrix();
 			app.translate(x, y);
 			app.rotate((float) (a * 0.02));
-			newEs.get(i).pintar(0, 0, iw / 2 + 20, angulo * i, c);
+			newEs.get(i).pintar(0, 0, iw / 2 + 20, angulo * i, order);
 			angulo = PConstants.TWO_PI / newEs.size();
 			app.popMatrix();
 		}
@@ -44,9 +45,10 @@ public class PRose extends Planeta {
 				app.pushMatrix();
 				app.translate(x, y);
 				app.rotate((float) (a * 0.02));
-				newEs.get(i).pintar(0, 0, iw / 2 + 20, angulo * i, c);
+				newEs.get(i).pintar(0, 0, iw / 2 + 20, angulo * i, order);
 				app.ellipse(0 + PApplet.cos(angulo*i) * radio, 0 + PApplet.sin(angulo*i) * radio, 20, 20);
-				app.text(c, 0, 0);
+				app.fill(0);
+				app.text(newEs.get(i).getC(), 0 +  PApplet.cos(angulo*i) * radio,  0 + PApplet.sin(angulo*i) * radio);
 				angulo = PConstants.TWO_PI / newEs.size();
 				app.popMatrix();
 
@@ -62,9 +64,6 @@ public class PRose extends Planeta {
 
 	@Override
 	public void ordenar() {
-		backup.addAll(newEs);
-		newEs.clear();
-		newEs.addAll(backup);
 		ordenado = true;
 	}
 
@@ -74,20 +73,15 @@ public class PRose extends Planeta {
 	}
 
 	@Override
-	public boolean agregar(Elemento newE) {
+	public boolean agregar(Elemento newE, int c) {
 		Elemento e = newE;
 		if (e instanceof Flor || e instanceof Star) {
 			newEs.add(newE);
+			order = c;
 			return true;
 		} else {
 			return false;
 		}
-	}
-
-	@Override
-	public int getC() {
-		// TODO Auto-generated method stub
-		return super.getC();
 	}
 
 	public ArrayList<Elemento> getNewEs() {

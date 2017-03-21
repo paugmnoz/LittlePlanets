@@ -5,9 +5,11 @@ import processing.core.PConstants;
 import processing.core.PImage;
 
 public abstract class Planeta implements Ordenable {
+	
 	protected float x, y, _x, radio, angulo;
 	protected float iw, ih; // para cambiar el tamaño del a imagen de los planetas
-	protected int escala, c;
+	protected int escala;
+	protected int order; //parametro para ordenar
 	protected PApplet app;
 	protected PImage[] img = new PImage [5];
 	protected double a;
@@ -21,6 +23,7 @@ public abstract class Planeta implements Ordenable {
 		this._x = _x;
 		radio=50;
 		a= 0;
+
 		for (int i = 0; i < img.length; i++) {
 			img[i] = app.loadImage("../data/Planeta"+i+".png"); 
 			iw = img[i].width / 2 + 60;
@@ -55,7 +58,7 @@ public abstract class Planeta implements Ordenable {
 	}
 	
 	// para saber si agrego el elemento al planeta
-	public abstract boolean agregar(Elemento newE);
+	public abstract boolean agregar(Elemento newE, int c);
 	
 	public abstract void ordenar();
 	public abstract void variar();
@@ -66,8 +69,6 @@ public abstract class Planeta implements Ordenable {
 	public float getY() {
 		return y;
 	}
-	public int getC() { //obtener qué numero de imagen tiene el elemento
-		return c;
-	}
+
 
 }

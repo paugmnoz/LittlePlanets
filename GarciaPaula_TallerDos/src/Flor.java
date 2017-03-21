@@ -13,18 +13,17 @@ public class Flor extends Elemento {
 			flor[i] = app.loadImage("../data/Rosa"+i+".png");
 		}
 		
-		rose = (int) app.random(0,9);
+		c = (int) app.random(0,9);
 	}
 
 	@Override
 	public void pintar(float _x) {
 		app.fill(232,125,202);
-		app.image(flor[rose], x, y);
+		app.image(flor[c], x, y);
 		//app.ellipse(x,y,20,20);	
 	}
 	
-	public void pintar(float nx, float ny, float radio, float angulo, int c) {
-		c = rose;
+	public void pintar(float nx, float ny, float radio, float angulo, int t) {
 		app.stroke(255);
 		app.fill(232,125,202);
 		_nx = nx + PApplet.cos(angulo) * radio;

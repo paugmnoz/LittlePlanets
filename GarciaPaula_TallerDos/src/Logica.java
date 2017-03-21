@@ -46,7 +46,7 @@ public class Logica {
 				Planeta pp = p[i];
 				if (select != null && pp.activarAgregar(elements.get(j))) {
 
-					if (p[i].agregar(elements.get(j))) {
+					if (p[i].agregar(elements.get(j), elements.get(i).getC())) {
 						elements.remove(j);
 					}
 				}
