@@ -23,8 +23,6 @@ public class PRose extends Planeta {
 		app.image(img[0], 0, 0, iw, iw);
 		app.popMatrix();
 		System.out.println(order);
-
-		// app.ellipse(x + _x, y, 100, 100);
 		for (int i = 0; i < newEs.size(); i++) {
 			app.pushMatrix();
 			app.translate(x, y);
@@ -35,26 +33,8 @@ public class PRose extends Planeta {
 		}
 
 		cambios();
-		ordenado();
 	}
 
-	public void ordenado() {
-		if (ordenado) {
-			Collections.sort(newEs, new CompRosa());
-			for (int i = 0; i < newEs.size(); i++) {
-				app.pushMatrix();
-				app.translate(x, y);
-				app.rotate((float) (a * 0.02));
-				newEs.get(i).pintar(0, 0, iw / 2 + 20, angulo * i, order);
-				app.ellipse(0 + PApplet.cos(angulo*i) * radio, 0 + PApplet.sin(angulo*i) * radio, 20, 20);
-				app.fill(0);
-				app.text(newEs.get(i).getC(), 0 +  PApplet.cos(angulo*i) * radio,  0 + PApplet.sin(angulo*i) * radio);
-				angulo = PConstants.TWO_PI / newEs.size();
-				app.popMatrix();
-
-			}
-		}
-	}
 
 	public void cambios() {
 		if (newEs.size() == 5) {
@@ -64,12 +44,11 @@ public class PRose extends Planeta {
 
 	@Override
 	public void ordenar() {
-		ordenado = true;
+		Collections.sort(newEs, new CompNum());
 	}
 
 	@Override
 	public void variar() {
-
 	}
 
 	@Override

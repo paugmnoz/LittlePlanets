@@ -12,22 +12,21 @@ public class Bottle extends Elemento {
 			bottle[i] = app.loadImage("../data/b" + i + ".png");
 		}
 
-		b = (int) app.random(0, 9);	}
+		c = (int) app.random(0, 9);	}
 
 	@Override
 	public void pintar(float _x) {
 		app.fill(232,145,98);
-		app.image(bottle[b], x, y);
+		app.image(bottle[c], x, y);
 //		app.ellipse(x+_x,y,20,20);
 	}
 
 	@Override
-	public void pintar(float nx, float ny, float radio, float angulo, int c) {
-		c=b;
+	public void pintar(float nx, float ny, float radio, float angulo, int t) {
 		app.fill(232,145,98);
 		_nx = nx + PApplet.cos(angulo) * radio;
 		_ny = nx + PApplet.sin(angulo) * radio;
-		app.image(bottle[b], _nx, _ny);
+		app.image(bottle[c], _nx, _ny);
 //		app.ellipse(_nx,_ny,20,20);	
 		}
 

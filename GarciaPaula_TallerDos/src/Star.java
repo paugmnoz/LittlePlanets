@@ -12,23 +12,23 @@ public class Star extends Elemento {
 			star[i] = app.loadImage("../data/Star" + i + ".png");
 		}
 
-		s = (int) app.random(0, 9);
+		c = (int) app.random(0, 9);
 	}
 
 	@Override
 	public void pintar(float _x) {
 		app.fill(98, 205, 232);
-		app.image(star[s], x, y);
+		app.image(star[c], x, y);
 		// app.ellipse(x+_x,y,20,20);
 	}
 
 	@Override
-	public void pintar(float nx, float ny, float radio, float angulo, int c) {
-		c= s;
+	public void pintar(float nx, float ny, float radio, float angulo, int t) {
+	
 		app.fill(98,205,232);
 		_nx = nx + PApplet.cos(angulo) * radio;
 		_ny = nx + PApplet.sin(angulo) * radio;
-		app.image(star[s], _nx, _ny);
+		app.image(star[c], _nx, _ny);
 		//app.ellipse(_nx,_ny,20,20);		
 		}
 }

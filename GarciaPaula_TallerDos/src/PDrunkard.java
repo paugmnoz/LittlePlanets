@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
@@ -24,8 +25,8 @@ public class PDrunkard extends Planeta {
 		for (int i = 0; i < newEs.size(); i++) {
 			app.pushMatrix();
 			app.translate(x, y);
-			app.rotate((float) (a * 0.05));
-			newEs.get(i).pintar(0, 0, iw/2 + 20, angulo * i,0);
+			app.rotate((float) (a * 0.02));
+			newEs.get(i).pintar(0, 0, iw/2 + 20, angulo * i,order);
 			angulo = PConstants.TWO_PI / newEs.size();
 			app.popMatrix();
 		}
@@ -47,8 +48,7 @@ public class PDrunkard extends Planeta {
 
 	@Override
 	public void ordenar() {
-		// TODO Auto-generated method stub
-
+		Collections.sort(newEs, new CompNum());
 	}
 
 	@Override
@@ -56,6 +56,7 @@ public class PDrunkard extends Planeta {
 		Elemento e = newE;
 		if (e instanceof Bottle || e instanceof Luz) {
 			newEs.add(newE);
+			order = c;
 			return true;
 		} else {
 			return false;

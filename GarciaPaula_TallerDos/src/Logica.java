@@ -45,8 +45,7 @@ public class Logica {
 			for (int j = 0; j < elements.size(); j++) {
 				Planeta pp = p[i];
 				if (select != null && pp.activarAgregar(elements.get(j))) {
-
-					if (p[i].agregar(elements.get(j), elements.get(i).getC())) {
+					if (p[i].agregar(elements.get(j), elements.get(j).getC())) {
 						elements.remove(j);
 					}
 				}
@@ -68,13 +67,22 @@ public class Logica {
 		
 			if (app.mouseButton == PConstants.RIGHT) {
 				for (int i = 0; i < p.length; i++) {
-					Planeta rose = p[i];
-					if(rose instanceof Planeta){
-						rose.ordenar();
-						System.out.println("asdfasdfdsfasdfas");
-
+					Planeta planet = p[i];
+					if(planet instanceof PRose){
+						planet.ordenar();
+					} 
+					else if(planet instanceof PKing){
+						planet.ordenar();
 					}
-
+					else if(planet instanceof PDrunkard){
+						planet.ordenar();
+					} 
+					else if(planet instanceof PBusinessMan){
+						planet.ordenar();
+					}
+					else if(planet instanceof PLightMan){
+						planet.ordenar();
+					}
 				}
 			}
 		
