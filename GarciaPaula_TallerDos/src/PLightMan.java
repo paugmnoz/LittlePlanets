@@ -8,10 +8,9 @@ public class PLightMan extends Planeta {
 
 	private ArrayList<Elemento> newEs = new ArrayList<Elemento>();
 
-	public PLightMan(PApplet app, float x, float y, int escala, float _x) {
+	public PLightMan( PApplet app, float x, float y, int escala, float _x) {
 		super(app, x, y, escala, _x);
 		iw = iw +15;
-
 	}
 
 	public void pintar(float _x) {
